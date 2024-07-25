@@ -1,0 +1,47 @@
+<form action="" (submit)="addTask($event)" *ngIf="showForm">
+  <span></span>
+  <p class="close" (click)="close()">&#x2715;</p>
+  <div>
+    <h3>Task Name</h3>
+    <input
+      [(ngModel)]="name"
+      required="true"
+      name="name"
+      placeholder="Task Name"
+    />
+  </div>
+  <div>
+    <h3>Task Description</h3>
+    <input
+      id="txtid"
+      [(ngModel)]="description"
+      name="description"
+      rows="4"
+      cols="50"
+      maxlength="200"
+      placeholder="Task Description"
+    />
+  </div>
+  <div>
+    <h3>Task Deadline</h3>
+    <div class="input-group">
+      <input
+        [(ngModel)]="date"
+        type="date"
+        name="deadline"
+        placeholder="Task deadline"
+      />
+      <input
+        [(ngModel)]="time"
+        type="time"
+        name="deadline"
+        placeholder="Task deadline"
+      />
+    </div>
+  </div>
+  <div class="chceck-input">
+    <label for="status">Mark as Done</label>
+    <input type="checkbox" id="status" name="status" [(ngModel)]="status" />
+  </div>
+  <button>Add Task</button>
+</form>

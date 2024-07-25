@@ -1,0 +1,26 @@
+<div class="main-container">
+  <main class="container" (click)="handleClick($event)">
+    <section class="tasks-list">
+      @if (tasks.length == 0) {
+        <h1>No Tasks, Start Adding Some ...</h1>
+      } @else {
+        @for (task of tasks; track $index) {
+          <app-task [task]="task" (click)="selectTask(task)"></app-task>
+        }
+      }
+    </section>
+    <button (click)="showForm = !showForm">Add Task</button>
+    <app-form
+      #form
+      [showForm]="showForm"
+      (taskCreated)="onTaskCreated($event)"
+    ></app-form>
+
+    <app-selected-task
+      [task]="selectedTask"
+      [showTask]="showTask"
+      (taskEdited)="onTaskEdited($event)"
+      (deletedId)="onTaskDeleted($event)"
+    ></app-selected-task>
+  </main>
+</div>
