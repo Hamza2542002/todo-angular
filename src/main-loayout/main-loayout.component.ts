@@ -28,7 +28,7 @@ export class MainLoayoutComponent {
   tasks: Task[] = [];
 
   constructor() {
-    if (typeof window !== 'undefined')
+    if (typeof window !== 'undefined' && localStorage.getItem('tasks'))
       this.tasks = JSON.parse(localStorage.getItem('tasks') || '') || [];
   }
 
